@@ -3,7 +3,7 @@ syntax = "proto3";
 package pb;
 
 // 👇 go_package must be full Go import path + package name
-option go_package = "github.com/hovman/ld_proto/pb;pb";
+option go_package = "github.com/Hovhannesmn/ld_proto/pb;pb";
 
 // LanguageDetectionService provides language detection capabilities
 service LanguageDetectionService {

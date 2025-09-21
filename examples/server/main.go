@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
-	"github.com/hovman/ld_proto/pb"
+	"github.com/Hovhannesmn/ld_proto/pb"
 )
 
 // Simple language detection based on common words

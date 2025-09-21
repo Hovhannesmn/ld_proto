@@ -1,4 +1,4 @@
-module github.com/hovman/ld_proto
+module github.com/Hovhannesmn/ld_proto
 
 go 1.24.0
 

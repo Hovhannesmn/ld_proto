@@ -5,7 +5,7 @@ A Go package providing Protocol Buffer definitions and generated code for langua
 ## Installation
 
 ```bash
-go get github.com/hovman/ld_proto
+go get github.com/Hovhannesmn/ld_proto
 ```
 
 ## Overview
@@ -20,7 +20,7 @@ This package contains:
 ### Import the package
 
 ```go
-import "github.com/hovman/ld_proto/pb"
+import "github.com/Hovhannesmn/ld_proto/pb"
 ```
 
 ### Example: Creating a gRPC Client
@@ -33,7 +33,7 @@ import (
     "log"
     
     "google.golang.org/grpc"
-    "github.com/hovman/ld_proto/pb"
+    "github.com/Hovhannesmn/ld_proto/pb"
 )
 
 func main() {
@@ -78,7 +78,7 @@ import (
     "net"
     
     "google.golang.org/grpc"
-    "github.com/hovman/ld_proto/pb"
+    "github.com/Hovhannesmn/ld_proto/pb"
 )
 
 type server struct {
