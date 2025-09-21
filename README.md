@@ -135,6 +135,57 @@ func main() {
 - `google.golang.org/grpc`: gRPC framework
 - `google.golang.org/protobuf`: Protocol Buffer support
 
+## Integration in Your Service
+
+### Quick Start
+
+```go
+import (
+    "context"
+    "google.golang.org/grpc"
+    "github.com/Hovhannesmn/ld_proto/pb"
+)
+
+// Connect to language detection service
+conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+if err != nil {
+    log.Fatal(err)
+}
+defer conn.Close()
+
+// Create client
+client := pb.NewLanguageDetectionServiceClient(conn)
+
+// Detect language
+req := &pb.DetectLanguageRequest{
+    Text:       "Your text here",
+    DocumentId: "doc-123",
+}
+
+resp, err := client.DetectLanguage(context.Background(), req)
+if err != nil {
+    log.Fatal(err)
+}
+
+fmt.Printf("Language: %s (%.2f confidence)\n", resp.LanguageCode, resp.Confidence)
+```
+
+### Integration Patterns
+
+- **Service Wrapper**: Wrap the client in your own service layer
+- **Middleware**: Add language detection to HTTP middleware
+- **Background Processing**: Process documents asynchronously
+- **Batch Processing**: Handle multiple documents efficiently
+
+See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for detailed integration patterns and examples.
+
+## Examples
+
+Check the `examples/` directory for complete working examples:
+- `client/` - Basic client usage
+- `server/` - Server implementation  
+- `third_party_service/` - Integration example
+
 ## License
 
 This project is licensed under the MIT License.
