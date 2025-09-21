@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package pb;
+
+// 👇 go_package must be full Go import path + package name
+option go_package = "github.com/hovman/ld_proto/pb;pb";
+
+// LanguageDetectionService provides language detection capabilities
+service LanguageDetectionService {
+  rpc DetectLanguage(DetectLanguageRequest) returns (DetectLanguageResponse);
+}
+
+message DetectLanguageRequest {
+  string text = 1;
+  string document_id = 2;
+  map<string, string> metadata = 3;
+}
+
+message DetectLanguageResponse {
+  string language_code = 1;
+  float confidence = 2;
+  repeated LanguageAlternative alternatives = 3;
+  string document_id = 4;
+  ProcessingMetadata metadata = 5;
+}
+
+message LanguageAlternative {
+  string language_code = 1;
+  float confidence = 2;
+}
+
+message ProcessingMetadata {
+  int64 processing_time_ms = 1;
+  string service_version = 2;
+  string model_version = 3;
+  string provider = 4;
+}
